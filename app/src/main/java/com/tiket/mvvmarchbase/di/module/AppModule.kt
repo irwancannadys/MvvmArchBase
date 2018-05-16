@@ -2,7 +2,9 @@ package com.tiket.mvvmarchbase.di.module
 
 import android.app.Application
 import android.content.Context
+import android.preference.PreferenceManager
 import com.google.gson.GsonBuilder
+import com.tiket.mvvmarchbase.data.AppRepository
 import com.tiket.mvvmarchbase.data.CommentRepository
 import com.tiket.mvvmarchbase.data.remote.CommentApiService
 import com.tiket.mvvmarchbase.utils.AppSchedulerProvider
@@ -44,5 +46,11 @@ class AppModule {
     @Singleton
     fun provideCommentRepository(retrofit: Retrofit): CommentRepository {
         return CommentRepository(retrofit.create(CommentApiService::class.java))
+    }
+
+    @Provides
+    @Singleton
+    fun provideAppRepository(context: Context): AppRepository {
+        return AppRepository(PreferenceManager.getDefaultSharedPreferences(context))
     }
 }

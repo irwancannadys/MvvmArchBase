@@ -2,6 +2,7 @@ package com.tiket.mvvmarchbase.ui
 
 import android.arch.lifecycle.ViewModelProvider
 import com.tiket.mvvmarchbase.ViewModelProviderFactory
+import com.tiket.mvvmarchbase.data.AppRepository
 import com.tiket.mvvmarchbase.data.CommentRepository
 import com.tiket.mvvmarchbase.utils.SchedulerProvider
 import dagger.Module
@@ -18,7 +19,9 @@ class MainActivityModule {
     }
 
     @Provides
-    fun provideMainViewModel(commentRepository: CommentRepository, schedulerProvider: SchedulerProvider): MainViewModel {
-        return MainViewModel(commentRepository, schedulerProvider)
+    fun provideMainViewModel(commentRepository: CommentRepository,
+                             appRepository: AppRepository,
+                             schedulerProvider: SchedulerProvider): MainViewModel {
+        return MainViewModel(commentRepository, appRepository, schedulerProvider)
     }
 }
