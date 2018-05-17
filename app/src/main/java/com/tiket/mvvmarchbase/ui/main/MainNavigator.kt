@@ -1,4 +1,4 @@
-package com.tiket.mvvmarchbase.ui
+package com.tiket.mvvmarchbase.ui.main
 
 /**
  * Created by Steve on 16/05/18.

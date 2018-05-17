@@ -1,7 +1,10 @@
 package com.tiket.mvvmarchbase.di.builder
 
-import com.tiket.mvvmarchbase.ui.MainActivity
-import com.tiket.mvvmarchbase.ui.MainActivityModule
+import com.tiket.mvvmarchbase.ui.detailcomment.DetailCommentActivity
+import com.tiket.mvvmarchbase.ui.detailcomment.DetailCommentActivityModule
+import com.tiket.mvvmarchbase.ui.detailcomment.fragment.DetailCommentFragmentProvider
+import com.tiket.mvvmarchbase.ui.main.MainActivity
+import com.tiket.mvvmarchbase.ui.main.MainActivityModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -12,4 +15,8 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [MainActivityModule::class])
     abstract fun bindMainActivity(): MainActivity
+
+    @ContributesAndroidInjector(modules = [DetailCommentActivityModule::class,
+        DetailCommentFragmentProvider::class])
+    abstract fun bindDetailCommentActivity(): DetailCommentActivity
 }

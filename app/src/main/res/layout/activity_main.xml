@@ -9,14 +9,14 @@
 
         <variable
             name="viewModel"
-            type="com.tiket.mvvmarchbase.ui.MainViewModel" />
+            type="com.tiket.mvvmarchbase.ui.main.MainViewModel" />
 
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainActivity">
+        tools:context=".ui.main.MainActivity">
 
         <TextView
             android:id="@+id/tv_comment"
@@ -24,10 +24,23 @@
             android:layout_height="wrap_content"
             android:text="@{viewModel.commentBody}"
             android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/btn_detail"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DETAIL"
+            android:layout_marginTop="10dp"
+            android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_comment"/>
 
         <ProgressBar
             android:id="@+id/pb_main"

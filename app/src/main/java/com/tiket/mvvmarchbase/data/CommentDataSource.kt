@@ -1,6 +1,7 @@
 package com.tiket.mvvmarchbase.data
 
 import com.tiket.mvvmarchbase.data.model.api.Comment
+import com.tiket.mvvmarchbase.data.model.api.Post
 import io.reactivex.Single
 
 /**
@@ -8,4 +9,6 @@ import io.reactivex.Single
  */
 interface CommentDataSource {
     fun getCommentsRemote(postId: String): Single<List<Comment>>
+
+    fun getPostsRemote(): Single<List<Post>>
 }

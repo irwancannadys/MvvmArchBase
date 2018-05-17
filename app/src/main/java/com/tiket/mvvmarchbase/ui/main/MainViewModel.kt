@@ -1,4 +1,4 @@
-package com.tiket.mvvmarchbase.ui
+package com.tiket.mvvmarchbase.ui.main
 
 import android.arch.lifecycle.MutableLiveData
 import android.databinding.ObservableField
